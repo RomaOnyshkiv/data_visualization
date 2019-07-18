@@ -1,0 +1,44 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data visualization app</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/latest/pygal-tooltips.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'visualize:about' %}">Data Visualization App</a>
+        </div>
+         <div id="navbar" class="navbar-collapse collapse">
+             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+             </button>
+            <a class="navbar-brand" href="{% url 'visualize:index' %}">Home</a>
+
+            <!-- for navigation bar implementation -->
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-header">
+        {% block header %} {% endblock header %}
+    </div>
+    <div>
+        {% block content %} {% endblock content %}
+    </div>
+</div>
+</body>
+</html>

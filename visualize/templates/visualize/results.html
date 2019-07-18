@@ -1,0 +1,13 @@
+{% extends 'visualize/template.html' %}
+{% load static from staticfiles %}
+
+{% block header %}
+<h1>Results:</h1>
+{% endblock header %}
+
+{% block content %}
+
+<embed type="image/svg+xml" src="{% static 'visualize/map.svg' %}"/>
+
+
+{% endblock content %}

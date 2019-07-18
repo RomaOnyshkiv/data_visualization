@@ -1,0 +1,25 @@
+{% extends 'visualize/template.html' %}
+
+{% block header%}
+
+<h1>Home page</h1>
+
+{% endblock header%}
+
+{% block content %}
+
+<div class="container">
+  <div class="dropdown scroll-menu scroll-menu-2x">
+    <button class="btn btn-primary dropdown-toggle dropdown-inverse" type="button" data-toggle="dropdown">Select year
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu scroll-menu scroll-menu-2x">
+        {% for year in years %}
+      <li><a href="{% url 'visualize:results' year %}">{{ year }}</a></li>
+        {% empty %}
+    <li>No data available</li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock content%}
