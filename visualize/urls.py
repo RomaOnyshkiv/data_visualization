@@ -1,8 +1,6 @@
 """ URLs for visualization app"""
-from django.conf.urls import include, url
+from django.conf.urls import url
 from . import views
-from django.conf import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -11,5 +9,3 @@ urlpatterns = [
     url(r'^about/$', views.abut, name='about'),
 
 ]
-
-# urlpatterns += staticfiles_urlpatterns()

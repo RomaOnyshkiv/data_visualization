@@ -7,5 +7,3 @@ def get_available_years():
     years = select_data.select_all_years(conn)
     return years
 
-
-# print(get_available_years())
