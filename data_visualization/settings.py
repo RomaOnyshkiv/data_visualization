@@ -135,3 +135,5 @@ STATICFILES_DIRS = (
 )
 
 
+def my_db():
+    return "db.sqlite3"

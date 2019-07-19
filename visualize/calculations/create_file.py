@@ -1,4 +1,4 @@
-from visualize.calculations import select_data
+from visualize.calculations.select_data import create_connection, select_by_year
 from pygal_maps_world import maps
 from pygal.style import RotateStyle, LightColorizedStyle, DarkColorizedStyle
 from visualize.calculations.country_codes import get_country_code
@@ -7,9 +7,9 @@ cc_populations = {}
 
 
 def generate_result_file(year):
-    conn = select_data.create_connection("db.sqlite3")
+    conn = create_connection()
     with conn:
-        dataset = select_data.select_by_year(conn, str(year))
+        dataset = select_by_year(conn, str(year))
         for data in dataset:
             country_name = data[1]
             population = data[3]

@@ -1,10 +1,11 @@
+from data_visualization.settings import my_db
 import sqlite3
 from sqlite3 import Error
 
 
-def create_connection(my_db):
+def create_connection():
     try:
-        conn = sqlite3.connect(my_db)
+        conn = sqlite3.connect(my_db())
         print('connected')
         return conn
     except Error as e:
