@@ -24,8 +24,13 @@ def index(request):
 
 def results(request, year):
     """ View for results """
+    all_years = []
+    for y in get_available_years():
+        all_years.append(str(y[0]))
+    all_years.reverse()
+    context = {'years': all_years}
     generate_result_file(year=int(year))
-    return render(request, 'visualize/results.html')
+    return render(request, 'visualize/results.html', context)
 
 
 def about(request):
@@ -35,5 +40,10 @@ def about(request):
 
 def remote(request, lang):
     """ View for results from git """
+    all_langs = []
+    for l in get_available_languages():
+        all_langs.append(str(l[0]))
+    all_langs.sort()
+    context = {'langs': all_langs}
     generate_rating_file(lang=str(lang))
-    return render(request, 'visualize/remote.html')
+    return render(request, 'visualize/remote.html', context)

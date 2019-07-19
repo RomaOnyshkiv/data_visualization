@@ -2,7 +2,23 @@
 {% load static from staticfiles %}
 
 {% block header %}
+
 <h1>Results:</h1>
+
+<div class="container">
+  <div class="dropdown scroll-menu scroll-menu-2x">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Change year
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="height: 400px; overflow: scroll;">
+        {% for year in years %}
+      <li><a href="{% url 'visualize:results' year %}">{{ year }}</a></li>
+        {% empty %}
+    <li>No data available</li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
+
 {% endblock header %}
 
 {% block content %}
