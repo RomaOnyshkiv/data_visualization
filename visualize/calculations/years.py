@@ -7,3 +7,9 @@ def get_available_years():
     years = select_data.select_all_years(conn)
     return years
 
+
+def get_available_languages():
+    my_db = "db.sqlite3"
+    conn = select_data.create_connection(my_db)
+    languages = select_data.select_all_languages(conn)
+    return languages

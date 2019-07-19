@@ -2,14 +2,9 @@ from visualize.calculations import select_data
 from pygal_maps_world import maps
 from pygal.style import RotateStyle, LightColorizedStyle, DarkColorizedStyle
 from visualize.calculations.country_codes import get_country_code
-import os
 
 cc_populations = {}
 file_path = 'visualize/static/visualize/map.svg'
-
-
-def delete_file():
-    os.remove(file_path)
 
 
 def generate_result_file(year):

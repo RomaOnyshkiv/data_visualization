@@ -28,3 +28,10 @@ def select_all_years(conn):
     return all_years
 
 
+def select_all_languages(conn):
+    cur = conn.cursor()
+    cur.execute("SELECT DISTINCT language FROM visualize_languages")
+    all_langs = list(cur.fetchall())
+    return all_langs
+
+

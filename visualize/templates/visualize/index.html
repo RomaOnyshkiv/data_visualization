@@ -10,11 +10,29 @@
 
 <div class="container">
   <div class="dropdown scroll-menu scroll-menu-2x">
-    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select year
+    <p>Select year to see population</p>
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">years
     <span class="caret"></span></button>
-    <ul class="dropdown-menu scroll-menu scroll-menu-2x">
+    <ul class="dropdown-menu" style="height: 400px; overflow: scroll;">
         {% for year in years %}
       <li><a href="{% url 'visualize:results' year %}">{{ year }}</a></li>
+        {% empty %}
+    <li>No data available</li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="dropdown scroll-menu scroll-menu-2x">
+    <p>Select Programming language</p>
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">language
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="height: 400px; overflow: scroll;">
+        {% for lang in langs %}
+      <li><a href="{% url 'visualize:remote' lang %}">{{ lang }}</a></li>
         {% empty %}
     <li>No data available</li>
         {% endfor %}
