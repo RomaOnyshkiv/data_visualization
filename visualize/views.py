@@ -8,19 +8,23 @@ def index(request):
     """ View for home page"""
     all_langs = []
     all_years = []
-    langs = get_available_languages()
-    years = get_available_years()
-    for l in langs:
+
+    for l in get_available_languages():
         all_langs.append(str(l[0]))
-    for y in years:
+
+    for y in get_available_years():
         all_years.append(str(y[0]))
+
+    all_years.reverse()
+    all_langs.sort()
     context = {'years': all_years, 'langs': all_langs}
+
     return render(request, 'visualize/index.html', context)
 
 
 def results(request, year):
     """ View for results """
-    generate_result_file(int(year))
+    generate_result_file(year=int(year))
     return render(request, 'visualize/results.html')
 
 

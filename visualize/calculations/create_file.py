@@ -4,12 +4,10 @@ from pygal.style import RotateStyle, LightColorizedStyle, DarkColorizedStyle
 from visualize.calculations.country_codes import get_country_code
 
 cc_populations = {}
-file_path = 'visualize/static/visualize/map.svg'
 
 
 def generate_result_file(year):
-    my_db = "db.sqlite3"
-    conn = select_data.create_connection(my_db)
+    conn = select_data.create_connection("db.sqlite3")
     with conn:
         dataset = select_data.select_by_year(conn, str(year))
         for data in dataset:
@@ -44,7 +42,7 @@ def generate_result_file(year):
     wm_style = RotateStyle('#336699', base_style=LightColorizedStyle)
     wm = maps.World(style=wm_style)
     wm.title = 'World populations in ' + str(year) + ', by country'
-    wm.add('0 - 10m', cc_pops_1)
-    wm.add('10m - 1bn', cc_pops_2)
-    wm.add('>1bn', cc_pops_3)
-    return wm.render_to_file(file_path)
+    wm.add('0 - 10m - ' + str(len(cc_pops_1)), cc_pops_1)
+    wm.add('10m - 1bn - ' + str(len(cc_pops_2)), cc_pops_2)
+    wm.add('>1bn - ' + str(len(cc_pops_3)), cc_pops_3)
+    return wm.render_to_file('visualize/static/visualize/map.svg')

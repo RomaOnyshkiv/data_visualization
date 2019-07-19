@@ -3,7 +3,6 @@ from sqlite3 import Error
 
 
 def create_connection(my_db):
-    print(my_db)
     try:
         conn = sqlite3.connect(my_db)
         print('connected')
@@ -15,7 +14,6 @@ def create_connection(my_db):
 
 def select_by_year(conn, year):
     cur = conn.cursor()
-    print(year)
     cur.execute("SELECT * FROM visualize_country WHERE year=?", (year,))
     rows = cur.fetchall()
     return rows
