@@ -3,10 +3,10 @@ version: '3'
 services:
   web:
     build: .
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     container_name: data_visualization
     volumes:
       - .:/data_visualization
     ports:
-      - "8080:8080"
+      - "8000:8000"
       - "5000:5000"
