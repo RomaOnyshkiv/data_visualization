@@ -1,1 +1,1 @@
-ALLOWED_HOSTS = ['164.68.106.64', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
