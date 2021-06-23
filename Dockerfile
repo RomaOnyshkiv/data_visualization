@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.9
 
 ENV PYTHONUNBUFFERED 1
 
@@ -8,4 +8,4 @@ WORKDIR /data_visualization
 
 ADD . /data_visualization/
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
