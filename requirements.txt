@@ -12,7 +12,7 @@ pygal==2.4.0
 pygal-maps-world==1.0.2
 pytz==2020.1
 reportlab==3.5.67
-requests==2.24.0
+requests==2.31.0
 sqlparse==0.4.4
 svglib==1.0.0
 tinycss2==1.0.2
